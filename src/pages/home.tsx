@@ -1,8 +1,8 @@
 import { PageHero } from "components";
-import Contact from "components/contact";
-import FeaturedProducts from "components/featured-products";
-import Hero from "components/hero";
-import Services from "components/services";
+import Contact from "components/Contact";
+import FeaturedProducts from "components/FeaturedProducts";
+import Hero from "components/Hero";
+import Services from "components/Services";
 
 export const HomePage = () => {
   return (

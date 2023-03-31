@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useReducer, ReactNode } from "react";
-import reducer from "../reducers/filter_reducer";
-import { useProductsContext } from "./products_context";
+import reducer from "../reducers/filter-reducer";
+import { useProductsContext } from "./products-context";
 
 const initialState = {};
 

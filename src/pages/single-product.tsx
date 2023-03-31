@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SingleProductPage = () => {
+  
   return <h4>single product page</h4>;
 };
 

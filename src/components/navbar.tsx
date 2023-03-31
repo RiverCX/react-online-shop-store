@@ -3,10 +3,10 @@ import logo from "assets/logo.svg";
 import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
 import { links } from "utils/constants";
-import { CartButtons } from "./cart-buttons";
-import { useProductsContext } from "context/products_context";
+import CartButtons from "./CartButtons";
+import { useProductsContext } from "context/products-context";
 
-export const Nav = () => {
+const Nav = () => {
   const { openSidebar } = useProductsContext();
   return (
     <NavContainer>
@@ -98,3 +98,5 @@ const NavContainer = styled.nav`
     }
   }
 `;
+
+export default Nav;

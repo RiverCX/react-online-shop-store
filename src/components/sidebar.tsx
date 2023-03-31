@@ -1,14 +1,14 @@
 import logo from "assets/logo.svg";
 import { Link } from "react-router-dom";
-import { useProductsContext } from "context/products_context";
+import { useProductsContext } from "context/products-context";
 import { FaTimes } from "react-icons/fa";
 import { links } from "utils/constants";
 import styled from "styled-components";
-import { CartButtons } from "./cart-buttons";
-import { useUserContext } from "context/user_context";
+import CartButtons from "./CartButtons";
+import { useUserContext } from "context/user-context";
 
 // Sidebar for small screen
-export const Sidebar = () => {
+const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
   return (
     <SidebarContainer>
@@ -113,3 +113,5 @@ const SidebarContainer = styled.div`
     }
   }
 `;
+
+export default Sidebar;

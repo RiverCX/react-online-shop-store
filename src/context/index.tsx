@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import { CartProvider, useCartContext } from "./cart_context";
-import { FilterProvider, useFilterContext } from "./filter_context";
-import { ProductsProvider } from "./products_context";
-import { useProductsContext } from "context/products_context";
-import { useUserContext } from "context/user_context";
+import { CartProvider, useCartContext } from "./cart-context";
+import { FilterProvider, useFilterContext } from "./filter-context";
+import { ProductsProvider } from "./products-context";
+import { useProductsContext } from "context/products-context";
+import { useUserContext } from "context/user-context";
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   return (

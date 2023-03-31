@@ -3,7 +3,7 @@ import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const CartButtons = () => {
+const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
   return (
     <Wrapper className="cart-btn-wrapper">
@@ -80,3 +80,5 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+export default CartButtons;

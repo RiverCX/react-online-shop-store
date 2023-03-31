@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <Wrapper>
       <h5>
@@ -35,3 +35,5 @@ const Wrapper = styled.footer`
     flex-direction: row;
   }
 `;
+
+export default Footer;
