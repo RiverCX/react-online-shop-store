@@ -20,8 +20,8 @@ const initialState: ProductsData = {
 
 const ProductsDisplayContext = React.createContext<
   | (ProductsData & {
-      openSidebar: () => void;
-      closeSidebar: () => void;
+      openSidebar?: () => void;
+      closeSidebar?: () => void;
     })
   | undefined
 >(undefined);
@@ -34,7 +34,7 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const closeSidebar = () => dispatch({ type: "SIDEBAR_CLOSE" });
 
   // fetching products
-  const fetchProjects = () => {
+  const fetchProducts = () => {
     dispatch({ type: "GET_PRODUCTS_BEGIN" });
     axios
       .get(url)
@@ -55,18 +55,21 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    fetchProjects();
+    fetchProducts();
   }, []);
 
   return (
     <ProductsDisplayContext.Provider
       value={{ ...state, openSidebar, closeSidebar }}
-    >
-      {children}
-    </ProductsDisplayContext.Provider>
+      children={children}
+    />
   );
 };
 
 export const useProductsContext = () => {
-  return useContext(ProductsDisplayContext);
+  const context = useContext(ProductsDisplayContext);
+  if (!context) {
+    throw new Error("Not in ProductsDisplayContext");
+  }
+  return context;
 };

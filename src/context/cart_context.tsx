@@ -5,7 +5,7 @@ import { Cart, CartItem } from "types/cart";
 
 const LOCAL_STORAGE_KEY = "cart";
 const getCartFromLocal = (): CartItem[] => {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "") || [];
+  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
 };
 
 const initialState: Cart = {
@@ -55,5 +55,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useCartContext = () => {
-  return useContext(CartContext);
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("Not in CartContext");
+  }
+  return context;
 };

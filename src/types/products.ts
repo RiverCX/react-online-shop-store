@@ -10,4 +10,5 @@ export interface Products {
   name: string;
   price: number;
   shipping: boolean;
+  featured?: boolean;
 }
