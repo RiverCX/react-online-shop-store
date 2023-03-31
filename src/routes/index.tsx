@@ -12,7 +12,11 @@ import {
 export const useAppRoutes = () => {
   const routes = useRoutes([
     {
-      path: "/",
+      index: true,
+      element: <HomePage />,
+    },
+    {
+      path: "/home",
       element: <HomePage />,
     },
     {
