@@ -4,10 +4,7 @@ export type CartActions =
   | {
       type: "ADD_TO_CART";
       payload: {
-        product: Pick<
-          SingleProduct,
-          "id" | "name" | "images" | "price" | "stock"
-        >;
+        product: Pick<SingleProduct, "name" | "images" | "price" | "stock">;
         amount: number;
         color: string;
         id: string;

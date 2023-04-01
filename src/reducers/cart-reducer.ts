@@ -18,7 +18,7 @@ export const cart_reducer = (state: Cart, action: CartActions): Cart => {
       });
       return { ...state, cart: cart };
     } else {
-      const { id, name, images, price, stock } = product;
+      const { name, images, price, stock } = product;
       return {
         ...state,
         cart: [

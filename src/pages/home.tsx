@@ -1,8 +1,4 @@
-import { PageHero } from "components";
-import Contact from "components/Contact";
-import FeaturedProducts from "components/FeaturedProducts";
-import Hero from "components/Hero";
-import Services from "components/Services";
+import { Hero, FeaturedProducts, Services, Contact } from "components";
 
 export const HomePage = () => {
   return (

@@ -1,8 +1,25 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ProductImage as ImagesType } from "types/single-product";
 
-const ProductImages = () => {
-  return <h4>product images</h4>;
+const ProductImages = ({ images }: { images: ImagesType[] }) => {
+  const [index, setIndex] = useState(0);
+  return (
+    <Wrapper>
+      <img src={images[index].url} alt="main image" className="main" />
+      <div className="gallery">
+        {images.map((image, i) => (
+          <img
+            key={image.id}
+            src={image.url}
+            alt={image.filename}
+            onClick={() => setIndex(i)}
+            className={`${i === index ? "active" : null}`}
+          />
+        ))}
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`

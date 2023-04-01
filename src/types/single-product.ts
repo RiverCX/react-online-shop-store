@@ -15,7 +15,7 @@ export interface SingleProduct {
   stock: number;
 }
 
-interface ProductImage {
+export interface ProductImage {
   filename: string;
   height: number;
   id: string;

@@ -10,13 +10,10 @@ import { SingleProduct } from "types/single-product";
 
 const initialState: ProductsData = {
   isSidebarOpen: false,
-  products_loading: false,
+  products_loading: true,
   products_error: false,
-  products: [],
-  featured_products: [],
-  single_product_loading: false,
+  single_product_loading: true,
   single_product_error: false,
-  single_product: {},
 };
 
 const ProductsDisplayContext = React.createContext<
