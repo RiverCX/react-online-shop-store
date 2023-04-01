@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, ReactNode } from "react";
+import React, { useContext, useReducer, ReactNode, useEffect } from "react";
 import reducer from "reducers/cart-reducer";
 import { addPayload, removePayload, togglePayload } from "types/cart-actions";
 import { Cart, CartItem } from "types/cart";
@@ -37,6 +37,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const toggleCart = (param: togglePayload) =>
     dispatch({ type: "TOGGLE_CART_ITEM_AMOUNT", payload: param });
   const countCart = () => dispatch({ type: "COUNT_CART_TOTALS" });
+
+  useEffect(() => {
+    dispatch({ type: "COUNT_CART_TOTALS" });
+  }, [state.cart]);
 
   return (
     <CartContext.Provider

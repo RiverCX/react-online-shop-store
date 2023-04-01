@@ -1,8 +1,17 @@
 import styled from "styled-components";
+import { Products } from "types/products";
 import Product from "./Product";
 
-const GridView = () => {
-  return <h4>Grid View</h4>;
+const GridView = ({ products }: { products: Products[] }) => {
+  return (
+    <Wrapper>
+      <div className="products-container">
+        {products.map((product) => (
+          <Product product={product} key={product.id} />
+        ))}
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`

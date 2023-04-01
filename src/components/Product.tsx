@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Products } from "types/products";
 
-const Product = (product: Products) => {
+const Product = ({ product }: { product: Products }) => {
   const { image, name, id, price } = product;
   return (
     <Wrapper>
