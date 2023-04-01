@@ -40,6 +40,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     dispatch({ type: "COUNT_CART_TOTALS" });
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
