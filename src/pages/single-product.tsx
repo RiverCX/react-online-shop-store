@@ -26,7 +26,7 @@ export const SingleProductPage = () => {
     if (productId) {
       fetchSingleProduct(productId);
     }
-  }, []);
+  }, [productId, fetchSingleProduct]);
 
   useEffect(() => {
     if (error) {
