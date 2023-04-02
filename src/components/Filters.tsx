@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useFilterContext } from "../context/filter-context";
-import { getUniqueValues, formatPrice } from "../utils/helpers";
+import { useFilterContext } from "context/filter-context";
+import { getUniqueValues, formatPrice } from "utils/helpers";
 import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {

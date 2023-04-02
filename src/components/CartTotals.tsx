@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { useCartContext } from "context/cart-context";
-import { useUserContext } from "context/user-context";
 import { formatPrice } from "utils/helpers";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 const CartTotals = () => {
   const { total_amount, shipping_fee } = useCartContext();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     <Wrapper>
       <div>
@@ -20,6 +22,19 @@ const CartTotals = () => {
             order total :<span>{formatPrice(total_amount + shipping_fee)}</span>
           </h4>
         </article>
+        {isAuthenticated ? (
+          <Link to="/checkout" className="btn">
+            proceed to checkout
+          </Link>
+        ) : (
+          <button
+            onClick={() => loginWithRedirect()}
+            className="btn"
+            type="button"
+          >
+            login
+          </button>
+        )}
       </div>
     </Wrapper>
   );

@@ -3,10 +3,13 @@ import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useCartContext } from "context/cart-context";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
   const { total_items } = useCartContext();
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  console.log(isAuthenticated);
   return (
     <Wrapper className="cart-btn-wrapper">
       <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
@@ -16,12 +19,24 @@ const CartButtons = () => {
           <span className="cart-value">{total_items}</span>
         </span>
       </Link>
-      {1 ? (
-        <button type="button" className="auth-btn" onClick={() => {}}>
+      {isAuthenticated ? (
+        <button
+          type="button"
+          className="auth-btn"
+          onClick={() =>
+            logout({
+              logoutParams: { returnTo: window.location.origin },
+            })
+          }
+        >
           Logout <FaUserMinus />
         </button>
       ) : (
-        <button type="button" className="auth-btn" onClick={() => {}}>
+        <button
+          type="button"
+          className="auth-btn"
+          onClick={() => loginWithRedirect()}
+        >
           Login <FaUserPlus />
         </button>
       )}

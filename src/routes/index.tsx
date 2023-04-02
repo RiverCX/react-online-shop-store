@@ -2,14 +2,17 @@ import { useRoutes } from "react-router";
 import {
   AboutPage,
   CartPage,
-  CheckoutPage,
   ErrorPage,
   HomePage,
   ProductsPage,
   SingleProductPage,
+  PrivateRoute,
+  CheckoutPage,
 } from "pages";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const useAppRoutes = () => {
+  const { isAuthenticated } = useAuth0();
   const routes = useRoutes([
     {
       index: true,
@@ -37,7 +40,11 @@ export const useAppRoutes = () => {
     },
     {
       path: "/checkout",
-      element: <CheckoutPage />,
+      element: (
+        <PrivateRoute isAuthenticated={isAuthenticated}>
+          <CheckoutPage />
+        </PrivateRoute>
+      ),
     },
     {
       path: "*",

@@ -5,9 +5,11 @@ import styled from "styled-components";
 import { links } from "utils/constants";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "context/products-context";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
+  const { isAuthenticated } = useAuth0();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -25,6 +27,7 @@ const Nav = () => {
               {link.text}
             </Link>
           ))}
+          {isAuthenticated && <Link to="/checkout">checkout</Link>}
         </ul>
         <CartButtons />
       </div>
