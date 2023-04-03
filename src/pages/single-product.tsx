@@ -37,8 +37,6 @@ export const SingleProductPage = () => {
   });
 
   if (loading) {
-    console.log("loading");
-
     return <Loading />;
   }
   if (error) {

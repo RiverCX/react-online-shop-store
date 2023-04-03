@@ -9,7 +9,6 @@ const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
   const { total_items, clearCart } = useCartContext();
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
   return (
     <Wrapper className="cart-btn-wrapper">
       <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
