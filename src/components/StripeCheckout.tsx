@@ -22,7 +22,7 @@ const CheckoutForm = () => {
 
   // strip stuff
   const [succeeded, setSucceeded] = useState(false);
-  const [error, setError] = useState<string | null>();
+  const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
@@ -47,7 +47,7 @@ const CheckoutForm = () => {
     },
   };
 
-  const createPaymentIntent = async () => {
+  const createPaymentIntent = () => {
     axios
       .post(
         ".netlify/functions/create-payment-intent",
@@ -71,6 +71,7 @@ const CheckoutForm = () => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
+
   const handleSubmit = async (ev: any) => {
     ev.preventDefault();
     setProcessing(true);
@@ -88,7 +89,7 @@ const CheckoutForm = () => {
       setSucceeded(true);
       setTimeout(() => {
         clearCart();
-        navigate("/");
+        navigate("/home");
       }, 10000);
     }
   };
