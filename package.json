@@ -34,8 +34,7 @@
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "netlify dev",
-    "prepare": "husky install"
+    "dev": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
