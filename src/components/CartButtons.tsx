@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
-  const { total_items } = useCartContext();
+  const { total_items, clearCart } = useCartContext();
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   console.log(isAuthenticated);
   return (
@@ -23,11 +23,12 @@ const CartButtons = () => {
         <button
           type="button"
           className="auth-btn"
-          onClick={() =>
+          onClick={() => {
+            clearCart();
             logout({
               logoutParams: { returnTo: window.location.origin },
-            })
-          }
+            });
+          }}
         >
           Logout <FaUserMinus />
         </button>

@@ -3,7 +3,6 @@ import { CartProvider, useCartContext } from "./cart-context";
 import { FilterProvider, useFilterContext } from "./filter-context";
 import { ProductsProvider } from "./products-context";
 import { useProductsContext } from "context/products-context";
-import { useUserContext } from "context/user-context";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
@@ -26,4 +25,4 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
 
 export default AppProvider;
 
-export { useCartContext, useProductsContext, useUserContext, useFilterContext };
+export { useCartContext, useProductsContext, useFilterContext };

@@ -9,7 +9,6 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useCartContext } from "context/cart-context";
-import { useUserContext } from "context/user-context";
 import { formatPrice } from "utils/helpers";
 
 const CheckoutForm = () => {

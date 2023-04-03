@@ -1,5 +1,3 @@
-import { Products } from "types/products";
-
 export const formatPrice = (number: number) => {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
