@@ -7,7 +7,7 @@ import CartButtons from "./CartButtons";
 import { useProductsContext } from "context/products-context";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Nav = () => {
+const NavBar = () => {
   const { openSidebar } = useProductsContext();
   const { isAuthenticated } = useAuth0();
   return (
@@ -102,4 +102,4 @@ const NavContainer = styled.nav`
   }
 `;
 
-export default Nav;
+export default NavBar;
